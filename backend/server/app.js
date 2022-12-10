@@ -8,6 +8,8 @@ const app = express();
 
 const employeeRoutes = require('../routes/employee');
 
+app.use(bodyParser.json());
+
 mongoose.set('strictQuery', true)
 //Connecting with mongo db
 mongoose.connect(`mongodb+srv://prajjwal:prajjwal@projects-applications.plmb7cy.mongodb.net/?retryWrites=true&w=majority`).then((x) => {
