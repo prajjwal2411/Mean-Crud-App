@@ -5,7 +5,7 @@ const employeeRoute = express.Router();
 let employeeModel = require('../model/employee');
 
 //Fetch all the employees
-employeeRoute.get('/get-employees', (req, res, next) => {
+employeeRoute.get('/get-employees/', (req, res, next) => {
     employeeModel.find((err, employee) => {
         if (employee) {
             res.status(200).json(employee);
@@ -16,7 +16,7 @@ employeeRoute.get('/get-employees', (req, res, next) => {
 });
 
 //Get Employee by Id
-employeeRoute.get('/get-employee/:id', (req, res, next) => {
+employeeRoute.get('/get-employee/:id/', (req, res, next) => {
     let id = req.params.id;
     employeeModel.findById(id, (err, employee) => {
         if (employee) {
@@ -28,7 +28,7 @@ employeeRoute.get('/get-employee/:id', (req, res, next) => {
 });
 
 //Add New Employee
-employeeRoute.post('/add-employee', (req, res, next) => {
+employeeRoute.post('/add-employee/', (req, res, next) => {
     let employee = new employeeModel(req.body);
     employee.save().then(x => {
         res.status(200).send({ 'Message': 'Employee Added Successfully' });
@@ -38,7 +38,7 @@ employeeRoute.post('/add-employee', (req, res, next) => {
 });
 
 //Update Existing Employee
-employeeRoute.patch('/edit-employee/:id', (req, res, next) => {
+employeeRoute.patch('/edit-employee/:id/', (req, res, next) => {
     let id = req.params.id;
     employeeModel.findById(id, function (err, employee) {
         if (employee) {
@@ -61,7 +61,7 @@ employeeRoute.patch('/edit-employee/:id', (req, res, next) => {
 });
 
 //Delete an Employee
-employeeRoute.delete('/delete-employee/:id', (req, res, next) => {
+employeeRoute.delete('/delete-employee/:id/', (req, res, next) => {
     let id = req.params.id;
     employeeModel.findByIdAndDelete(id, (err, employee) => {
         if (employee){

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeListService } from './employee-list.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['S. No.', 'Employee ID', 'Name', 'Skills', 'Department', 'Gender'];
+  dataSource: any;
+
+  constructor(
+    public employeeListService: EmployeeListService
+  ) { }
 
   ngOnInit(): void {
+  }
+  
+  getAllEmployees(){
+    this.employeeListService.getEmployees()
   }
 
 }
