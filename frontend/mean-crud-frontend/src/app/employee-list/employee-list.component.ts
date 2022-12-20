@@ -8,7 +8,7 @@ import { EmployeeListService } from './employee-list.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  displayedColumns: string[] = ['S. No.', 'Employee ID', 'Name', 'Skills', 'Department', 'Gender'];
+  displayedColumns: string[] = ['S. No.', 'Name', 'Skills', 'Department', 'Gender'];
   dataSource: any;
 
   constructor(
@@ -16,10 +16,13 @@ export class EmployeeListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAllEmployees()
   }
   
   getAllEmployees(){
-    this.employeeListService.getEmployees()
+    this.employeeListService.getEmployees().subscribe((response: any) => {
+      this.dataSource = response;
+    })
   }
 
 }

@@ -2,9 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Employee = new Schema({
-    //EmpId
-    empId: {type: String},
-
     //Input Field
     firstName: {type: String},
     lastName: {type: String},
