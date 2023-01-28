@@ -12,17 +12,20 @@ export class EmployeeListComponent implements OnInit {
   dataSource: any;
 
   constructor(
-    public employeeListService: EmployeeListService
+    private employeeListService: EmployeeListService,
+    
   ) { }
 
   ngOnInit(): void {
-    this.getAllEmployees()
+    this.getAllEmployees();
   }
   
   getAllEmployees(){
     this.employeeListService.getEmployees().subscribe((response: any) => {
       this.dataSource = response;
-    })
+    }, (error: any) => {
+      console.log(`Unable to Fetch Data: ${error}`);
+    });
   }
 
 }
