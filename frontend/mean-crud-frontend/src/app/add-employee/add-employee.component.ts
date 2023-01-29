@@ -30,10 +30,10 @@ export class AddEmployeeComponent implements OnInit {
 
   onSubmit() {
     this.addEmployeeService.addEmployee(this.employeeForm.value).subscribe((response: any) => {
-      console.log(`Employee Added Successfully`);
+      this.snacBar.success(response.message);
       this.router.navigate(['/']);
     }, (error: any) => {
-      this.snacBar.error(`Unable to Add Employee`);
+      this.snacBar.error(`Unable to Add Employee: ${error}`);
     });
   }
 

@@ -6,7 +6,7 @@ import { catchError, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeListService {
+export class EditEmployeeService {
 
   private url: string = environment.employeeUrl;
 
@@ -14,19 +14,8 @@ export class EmployeeListService {
     private http: HttpClient
   ) { }
 
-  getEmployees(){
-    return this.http.get(`${this.url}/get-employees/`).pipe(
-      map((response: any) => {
-        return response;
-      }),
-      catchError((error: any) => {
-        return error;
-      })
-    )
-  }
-
-  deleteEmployee(employeeId: string){
-    return this.http.delete(`${this.url}/delete-employee/${employeeId}/`).pipe(
+  editEmployee(employeeData: any, employeeId: string){
+    return this.http.patch(`${this.url}/edit-employee/${employeeId}/`, employeeData).pipe(
       map((response: any) => {
         return response;
       }),
