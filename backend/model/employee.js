@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Employee = new Schema({
-    //Input Field
-    firstName: {type: String},
-    lastName: {type: String},
-    skills: {type: String},
-
-    //Radio Button
+    name: {type: String},
+    age: {type: Number},
     gender: {type: String},
-
-    //Dropdowns
-    department: {type: String}
+    email: {type: String},
+    contactNo: {type: String},
+    address1: {type: String},
+    address2: {type: String},
+    country: { type: String },
+    state: { type: String },
+    city: { type: String },
+    pincode: { type: Number },
 },{
     collection: 'employees'
 });

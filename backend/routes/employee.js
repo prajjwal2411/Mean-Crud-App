@@ -8,7 +8,9 @@ let employeeModel = require('../model/employee');
 employeeRoute.get('/get-employees/', (req, res, next) => {
     employeeModel.find((err, employee) => {
         if (employee) {
-            res.status(200).json(employee);
+            setTimeout(() => {
+                res.status(200).json(employee);
+            }, 3000)
         } else {
             res.status(400).json({ 'error': `Something went wrong ${err}` });
         }

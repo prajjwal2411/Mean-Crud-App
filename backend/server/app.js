@@ -24,13 +24,6 @@ mongoose.connect(`mongodb+srv://prajjwal:prajjwal@projects-applications.plmb7cy.
 
 const port = process.env.PORT || 4000;
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*')
-//     res.setHeader('Access-Control-Allow-Methods', 'GET', 'POST', 'PUT', 'OPTIONS', 'PATCH', 'DELETE')
-//     //res.setHeader('Access-Control-Allow-Headers', )
-//     //res.setHeader('Access-Control-Allow-Credentials')
-// })
-
 //Routes
 app.use('/employees', employeeRoutes);
 

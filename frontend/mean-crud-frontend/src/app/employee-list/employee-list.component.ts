@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SnacbarService } from 'src/shared/snackbar-service/snacbar.service';
 import { EmployeeListService } from './employee-list.service';
 import { MatDialog } from '@angular/material/dialog'
@@ -11,7 +11,7 @@ import { EditEmployeeComponent } from '../edit-employee/edit-employee.component'
 })
 export class EmployeeListComponent implements OnInit{
 
-  displayedColumns: string[] = ['S. No.', 'Name', 'Skills', 'Department', 'Gender', 'Action'];
+  displayedColumns: string[] = ['S. No.', 'Name', 'Age', 'Gender', 'Email', 'Contact No.', 'Address 1', 'Address 2', 'Country', 'State', 'City', 'Pincode'];
   dataSource: any;
 
   constructor(
@@ -25,6 +25,7 @@ export class EmployeeListComponent implements OnInit{
   }
   
   getAllEmployees(){
+    console.log(this.dataSource)
     this.employeeListService.getEmployees().subscribe((response: any) => {
       this.dataSource = response;
     }, (error: any) => {
