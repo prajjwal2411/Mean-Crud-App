@@ -11,7 +11,7 @@ import { EditEmployeeComponent } from '../edit-employee/edit-employee.component'
 })
 export class EmployeeListComponent implements OnInit{
 
-  displayedColumns: string[] = ['S. No.', 'Name', 'Age', 'Gender', 'Email', 'Contact No.', 'Address 1', 'Address 2', 'Country', 'State', 'City', 'Pincode'];
+  displayedColumns: string[] = ['S. No.', 'Name', 'Age', 'Gender', 'Email', 'Contact No.', 'Address 1', 'Address 2', 'Country', 'State', 'City', 'Pincode', 'Action'];
   dataSource: any;
 
   constructor(
@@ -35,6 +35,7 @@ export class EmployeeListComponent implements OnInit{
 
   deleteEmployee(employeeId: string){
     this.employeeListService.deleteEmployee(employeeId).subscribe((response: any) => {
+      this.dataSource = null;
       this.snacBar.success(response.message);
       this.getAllEmployees();
     }, (error: any) => {

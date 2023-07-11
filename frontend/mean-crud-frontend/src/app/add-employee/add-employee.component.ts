@@ -19,11 +19,17 @@ export class AddEmployeeComponent implements OnInit {
     ) { }
 
   employeeForm = this.formBuilder.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    skills: ['', Validators.required],
-    department: ['', Validators.required],
-    gender: ['', Validators.required]
+    name: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/), Validators.minLength(2)]],
+    age: ['', [Validators.required, Validators.pattern(/^[1-9]+$/), Validators.min(0)]],
+    gender: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    contact: ['', [Validators.required, Validators.pattern(/^[789]\d{9}$/)]],
+    addressOne: ['', [Validators.required]],
+    addressTwo: ['', [Validators.required]],
+    country: ['', [Validators.required]],
+    state: ['', [Validators.required]],
+    city: ['', [Validators.required]],
+    pincode: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{5}$/)]],
   });
 
   ngOnInit(): void {}

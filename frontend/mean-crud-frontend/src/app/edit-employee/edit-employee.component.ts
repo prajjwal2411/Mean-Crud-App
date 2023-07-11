@@ -27,20 +27,32 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   employeeForm = this.formBuilder.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    skills: ['', Validators.required],
-    department: ['', Validators.required],
-    gender: ['', Validators.required]
+    name: ['', Validators.required],
+    age: ['', Validators.required],
+    gender: ['', Validators.required],
+    email: ['', Validators.required],
+    contact: ['', Validators.required],
+    addressOne: ['', Validators.required],
+    addressTwo: ['', Validators.required],
+    country: ['', Validators.required],
+    state: ['', Validators.required],
+    city: ['', Validators.required],
+    pincode: ['', Validators.required],
   });
 
   ngOnInit(): void {
     this.employeeForm = this.formBuilder.group({
-      firstName: [this.employeeData.firstName, Validators.required],
-      lastName: [this.employeeData.lastName, Validators.required],
-      skills: [this.employeeData.skills, Validators.required],
-      department: [this.employeeData.department, Validators.required],
-      gender: [this.employeeData.gender, Validators.required]
+      name: [this.employeeData.name, Validators.required],
+      age: [this.employeeData.age, Validators.required],
+      gender: [this.employeeData.gender, Validators.required],
+      email: [this.employeeData.email, Validators.required],
+      contact: [this.employeeData.contact, Validators.required],
+      addressOne: [this.employeeData.addressOne, Validators.required],
+      addressTwo: [this.employeeData.addressTwo, Validators.required],
+      country: [this.employeeData.country, Validators.required],
+      state: [this.employeeData.state, Validators.required],
+      city: [this.employeeData.city, Validators.required],
+      pincode: [this.employeeData.pincode, Validators.required],
     });
   }
 
