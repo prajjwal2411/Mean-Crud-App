@@ -3,9 +3,6 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { FormBuilder, Validators } from '@angular/forms';
 import { EditEmployeeService } from './edit-employee.service';
 import { SnacbarService } from 'src/shared/snackbar-service/snacbar.service';
-import { EmployeeListService } from '../employee-list/employee-list.service';
-import { EmployeeListComponent } from '../employee-list/employee-list.component';
-
 @Component({
   selector: 'app-edit-employee',
   templateUrl: './edit-employee.component.html',
@@ -27,17 +24,17 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   employeeForm = this.formBuilder.group({
-    name: ['', Validators.required],
-    age: ['', Validators.required],
-    gender: ['', Validators.required],
-    email: ['', Validators.required],
-    contact: ['', Validators.required],
-    addressOne: ['', Validators.required],
-    addressTwo: ['', Validators.required],
-    country: ['', Validators.required],
-    state: ['', Validators.required],
-    city: ['', Validators.required],
-    pincode: ['', Validators.required],
+    name: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+$/), Validators.minLength(2)]],
+    age: ['', [Validators.required, Validators.pattern(/^[1-9]+$/), Validators.min(0)]],
+    gender: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    contact: ['', [Validators.required, Validators.pattern(/^[789]\d{9}$/)]],
+    addressOne: ['', [Validators.required]],
+    addressTwo: ['', [Validators.required]],
+    country: ['', [Validators.required]],
+    state: ['', [Validators.required]],
+    city: ['', [Validators.required]],
+    pincode: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{5}$/)]],
   });
 
   ngOnInit(): void {
